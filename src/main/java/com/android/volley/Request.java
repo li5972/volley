@@ -93,6 +93,9 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     /** The retry policy for this request. */
     private RetryPolicy mRetryPolicy;
 
+    /** Extra parameters to be added to the request headers */
+    private Map<String, String> mRequestHeaders = null;
+
     /**
      * When a request can be retrieved from cache but must be refreshed from
      * the network, the cache entry will be stored here so that in the event of
@@ -320,7 +323,17 @@ public abstract class Request<T> implements Comparable<Request<T>> {
      * @throws AuthFailureError In the event of auth failure
      */
     public Map<String, String> getHeaders() throws AuthFailureError {
-        return Collections.emptyMap();
+
+        return ((mRequestHeaders == null) ? Collections.<String, String>emptyMap() : mRequestHeaders);
+    }
+
+    /**
+     * Add any request headers here
+     * @param headers Request Headers to be added
+     */
+    public void setHeaders(Map<String, String> headers) {
+
+        mRequestHeaders = headers;
     }
 
     /**

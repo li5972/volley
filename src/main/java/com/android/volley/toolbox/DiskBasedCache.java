@@ -100,6 +100,16 @@ public class DiskBasedCache implements Cache {
         VolleyLog.d("Cache cleared.");
     }
 
+    @Override
+    public void flush() {
+
+    }
+
+    @Override
+    public void close() {
+
+    }
+
     /**
      * Returns the cache entry with the specified key if it exists, null otherwise.
      */

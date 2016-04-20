@@ -30,4 +30,8 @@ public class ParseError extends VolleyError {
     public ParseError(Throwable cause) {
         super(cause);
     }
+
+    public ParseError(String exceptionMessage) {
+        super(exceptionMessage);
+    }
 }
